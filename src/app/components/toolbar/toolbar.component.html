@@ -1,0 +1,16 @@
+<p>toolbar works!</p>
+<div class="card">
+    <p-toolbar>
+    <div class="p-toolbar-group-start">
+        <input pInputText placeholder="Search" />
+    </div>
+
+    <div class="p-toolbar-group-end">
+        <p-dropdown 
+        [options]="cities" 
+        [(ngModel)]="selectedCity" 
+        optionLabel="name"
+        placeholder="Select a City" />
+    </div>
+    </p-toolbar>
+    </div>
