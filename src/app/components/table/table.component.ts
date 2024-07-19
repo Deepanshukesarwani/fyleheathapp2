@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngxs/store';
+import { UserState } from '../../../store/states/user.state';
 @Component({
   selector: 'app-table',
   standalone: true,
@@ -10,6 +12,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './table.component.css',
 })
 export class TableComponent {
+  // customer$;
+  constructor(private store:Store){
+    this.store.select(UserState.getAlluser).subscribe(data=>{
+      console.log(data);
+    })
+  }
   customer: any = [
     {
       name: 'Deepanshu',

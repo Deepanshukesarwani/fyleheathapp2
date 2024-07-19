@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewEncapsulation } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'app-dialog',
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   imports: [DialogModule, ButtonModule,CardModule,FloatLabelModule, FormsModule, InputGroupModule, InputGroupAddonModule, InputTextModule],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css'

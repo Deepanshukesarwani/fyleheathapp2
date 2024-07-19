@@ -1,6 +1,6 @@
-<p-button (onClick)="showDialog()" label="Add user" />
+<p-button (onClick)="showDialog()" label="AddUser" class="bg-blue-400 border-r-100"/>
+<div class=" h-[100%] w-[100%] bg-green-300 items-center justify-center flex">
 <p-dialog 
-    header="Header" 
     [(visible)]="visible" 
     [modal]="true" 
     [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
@@ -9,16 +9,29 @@
     [resizable]="false">
 
     <div class="card flex justify-content-center">
-        <p-card header="Simple Card" class="flex">
-            <p-inputGroup>
-                <p-inputGroupAddon>
-                    <i class="pi pi-user"></i>
-                </p-inputGroupAddon>
-                <input pInputText placeholder="Username" />
-            </p-inputGroup>
-            <div>
-                hello
-            </div>
-        </p-card>
-    </div>
-</p-dialog>
+     
+        <p-card header="Simple Card" class="flex ">
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-user"></i>
+                    </p-inputGroupAddon>
+                    <input pInputText placeholder="Username" class="h-[100%]" />
+                </p-inputGroup>
+                <br>
+                <br>
+                <div class="grid grid-cols-2 gap-4 h-14 justify-center items-center">
+                    <div>
+                        <p-floatLabel>
+                            <input id="username" type="text" pInputText [(ngModel)]="value" />
+                            <label for="username">Username</label>
+                        </p-floatLabel>      
+                    </div>
+                    <p-floatLabel>
+                        <input id="username" type="text" pInputText [(ngModel)]="value" />
+                        <label for="username">Username</label>
+                    </p-floatLabel>
+                </div>
+            </p-card>
+        </div>
+    </p-dialog>
+</div>
