@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputTextModule } from 'primeng/inputtext';
+import { Store } from '@ngxs/store';
 @Component({
   selector: 'app-dialog',
   standalone: true,
@@ -16,6 +17,11 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './dialog.component.css'
 })
 export class DialogComponent {
+  
+  
+  constructor(private store:Store){
+
+  }
   visible: boolean = false;
   value: string | undefined;
   showDialog() {

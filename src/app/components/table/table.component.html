@@ -12,15 +12,17 @@
                 <th style="width:25%">Name</th>
                 <th style="width:25%">Country</th>
                 <th style="width:25%">Company</th>
-                <th style="width:25%">Representative</th>
+                <th style="width:25%">Number of Workout</th>
+                <th style="width:25%">Total workout minutes</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer>
             <tr>
                 <td>{{ customer.name }}</td>
-                <td>{{ customer.country.name }}</td>
-                <td>{{ customer.company }}</td>
-                <td>{{ customer.representative.name }}</td>
+                <td>{{ customer.id }}</td>
+                <td>{{ getWorkoutTypes(customer.workouts) }}</td>
+                <td>{{ customer.workouts.length }}</td>
+                <td>{{ getTotalWorkoutMinutes(customer.workouts) }}</td>
             </tr>
         </ng-template>
     </p-table>
