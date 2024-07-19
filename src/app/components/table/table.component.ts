@@ -12,19 +12,19 @@ import { UserState } from '../../../store/states/user.state';
   styleUrls: ['./table.component.css'], // Corrected typo here
 })
 export class TableComponent implements OnInit {
-  customer: any[] = [];
+  User: any[] = [];
 
   constructor(private store: Store) {
     this.store.select(UserState.getAlluser).subscribe(data => {
-      this.customer = data;
+      this.User = data;
     });
   }
 
   ngOnInit() {
-    // Log the customer array after the component has been initialized
-    console.log( "-1",this.customer );
-    this.customer.forEach(cust => {
-      console.log(`Customer ID ${cust.id} has ${cust.workouts.length} workouts.`);
+    // Log the User array after the component has been initialized
+    console.log( "-1",this.User );
+    this.User.forEach(cust => {
+      console.log(`User ID ${cust.id} has ${cust.workouts.length} workouts.`);
     });
   }
 
@@ -40,7 +40,7 @@ export class TableComponent implements OnInit {
 
 
 
-// customer: any = [
+// User: any = [
 //   {
 //     name: 'Deepanshu',
 //     country: {

@@ -1,37 +1,65 @@
-<p-button (onClick)="showDialog()" label="AddUser" class="bg-blue-400 border-r-100"/>
-<div class=" h-[100%] w-[100%] bg-green-300 items-center justify-center flex">
-<p-dialog 
-    [(visible)]="visible" 
-    [modal]="true" 
-    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
-    [style]="{ width: '50vw' }" 
-    [draggable]="false" 
-    [resizable]="false">
+<p-button
+  (onClick)="showDialog()"
+  label="AddUser"
+  class="bg-blue-400 border-r-100"
+/>
 
-    <div class="card flex justify-content-center">
-     
-        <p-card header="Simple Card" class="flex ">
-                <p-inputGroup>
-                    <p-inputGroupAddon>
-                        <i class="pi pi-user"></i>
-                    </p-inputGroupAddon>
-                    <input pInputText placeholder="Username" class="h-[100%]" />
-                </p-inputGroup>
-                <br>
-                <br>
-                <div class="grid grid-cols-2 gap-4 h-14 justify-center items-center">
-                    <div>
-                        <p-floatLabel>
-                            <input id="username" type="text" pInputText [(ngModel)]="value" />
-                            <label for="username">Username</label>
-                        </p-floatLabel>      
-                    </div>
-                    <p-floatLabel>
-                        <input id="username" type="text" pInputText [(ngModel)]="value" />
-                        <label for="username">Username</label>
-                    </p-floatLabel>
-                </div>
-            </p-card>
-        </div>
-    </p-dialog>
-</div>
+<p-dialog
+  header="Add User"
+  [(visible)]="visible"
+  [modal]="true"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [style]="{ width: '50vw', height: '70vh' }"
+  [draggable]="false"
+  [resizable]="true"
+>
+  <div class="card flex flex-col justify-content-center border-8 h-[100%] p-3">
+    <br />
+    <div>
+      <p-inputGroup class="flex items-center border rounded-lg bg-gray-100 border-gray-300 focus-within:border-blue-500">
+        <p-inputGroupAddon class="bg-gray-200 border-r border-gray-300 px-3 py-2 text-gray-500">
+          <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input
+          pInputText
+          placeholder="Username"
+          [(ngModel)]="userName"
+          class="w-full h-12 px-3 py-2 border-none rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800"
+        />
+      </p-inputGroup>
+    </div>
+    <br />
+    <br />
+    <div class="grid grid-cols-2 gap-4 h-20 justify-center items-center">
+      <div>
+        <p-dropdown
+          [options]="cities"
+          [(ngModel)]="selectedCity"
+          [checkmark]="true"
+          optionLabel="name"
+          [showClear]="true"
+          placeholder="Workout types*"
+        />
+      </div>
+      <div>
+        <p-floatLabel>
+          <input
+            id="workoutMinutes"
+            type="number"
+            pInputText
+            [(ngModel)]="workoutMinutes"
+            class="peer block w-full h-12 px-3 py-2 border rounded-lg bg-gray-100 border-gray-300 text-gray-800 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <label for="workoutMinutes" class="text-gray-500 peer-focus:text-blue-500">
+            Workout minutes
+          </label>
+        </p-floatLabel>
+      </div>
+      <p-button
+        label="Submit"
+        (click)="AddWorkout()"
+        class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-center"
+      />
+    </div>
+  </div>
+</p-dialog>
